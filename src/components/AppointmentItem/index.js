@@ -2,8 +2,8 @@ import {format} from 'date-fns'
 import './index.css'
 
 const AppointmentItem = props => {
-  const {commentDetails} = props
-  const {titleInput, dateInput, isStarred, id} = commentDetails
+  const {appointmentDetails} = props
+  const {titleInput, dateInput, isStarred, id} = appointmentDetails
   const starredImage = isStarred
     ? 'https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png'
     : 'https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png'

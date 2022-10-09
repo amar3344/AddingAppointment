@@ -1,9 +1,7 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
-import {format} from 'date-fns'
-
-import AppointmentItem from '../AppointmentItem'
+import AppointmentItem from '../AppointmentItem/index'
 import './index.css'
 
 class Appointments extends Component {
@@ -31,6 +29,8 @@ class Appointments extends Component {
 
     this.setState(prevState => ({
       appointmentsList: [...prevState.appointmentsList, addAppointment],
+      titleInput: '',
+      dateInput: '',
     }))
   }
 
@@ -40,7 +40,7 @@ class Appointments extends Component {
     return appointmentsList.map(eachAppointment => (
       <AppointmentItem
         key={eachAppointment.id}
-        commentDetails={eachAppointment}
+        appointmentDetails={eachAppointment}
       />
     ))
   }
@@ -84,7 +84,7 @@ class Appointments extends Component {
               </button>
             </div>
             <ul className="appointment-list-container">
-              {this.getAppointmentsList()}
+              {this.getAppointmentsList}
             </ul>
           </div>
         </div>
