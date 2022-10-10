@@ -84,7 +84,7 @@ class Appointments extends Component {
               </button>
             </div>
             <ul className="appointment-list-container">
-              {this.getAppointmentsList}
+              {this.getAppointmentsList()}
             </ul>
           </div>
         </div>
