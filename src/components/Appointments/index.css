@@ -1,5 +1,10 @@
+.appointments-image {
+  width: 50%;
+  height: 70%;
+  background-size: cover;
+}
+
 .main-container {
-  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +22,14 @@
   align-items: center;
 }
 
+@media (min-width: 768px) {
+  .bg-container {
+    width: 80%;
+    height: 100%;
+    padding: 50px;
+  }
+}
+
 .container {
   background-color: #ffffff;
   width: 100%;
@@ -28,6 +41,12 @@
   padding: 20px;
 }
 
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
 .container2 {
 }
 
@@ -36,6 +55,15 @@
   font-weight: bold;
   font-family: 'Roboto';
   color: #171f46;
+}
+
+@media (min-width: 768px) {
+  .large-devices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .title-text {
@@ -101,6 +129,11 @@
   cursor: pointer;
 }
 
+.filled-color {
+  background-color: #9897f0;
+  color: #fff;
+}
+
 .appointments-container {
   display: flex;
   justify-content: space-between;
@@ -109,8 +142,13 @@
 
 .appointment-list-container {
   list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .appointment-list-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }

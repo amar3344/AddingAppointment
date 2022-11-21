@@ -2,12 +2,24 @@
   background-color: transparent;
   border: 1px solid #b5b7c4;
   border-radius: 20px;
-  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: -40px;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .appointment-list {
+    width: 300px;
+  }
 }
 
 .star-image-button {
-  width: 25px;
-  height: 25px;
+  border: none;
+}
+
+.starred-image {
+  width: 30px;
+  height: 30px;
   background-size: cover;
 }
 
@@ -24,15 +36,16 @@
 }
 
 .appointment-title {
-  font-size: 10px;
+  font-size: 20px;
   font-family: 'Roboto';
   font-weight: 300;
-  color: #9897f0;
+  color: #171f46;
+  font-weight: 500;
 }
 
 .date-format {
-  font-size: 10px;
+  font-size: 13px;
   font-family: 'Roboto';
-  font-weight: 300;
+  font-weight: 500;
   color: #b5b7c4;
 }

@@ -39,6 +39,10 @@ class Appointments extends Component {
     }))
   }
 
+  getFilteredList = () => {
+    this.setState(prevState => ({isFilterActive: !prevState.isFilterActive}))
+  }
+
   getAppointmentsList = () => {
     const {appointmentsList, isFilterActive} = this.state
 
@@ -50,16 +54,28 @@ class Appointments extends Component {
     return appointmentsList
   }
 
+  toggleStarredButton = id => {
+    this.setState(prevState => ({
+      appointmentsList: prevState.appointmentsList.map(eachAppointment => {
+        if (eachAppointment.id === id) {
+          return {...eachAppointment, isStarred: !eachAppointment.isStarred}
+        }
+        return eachAppointment
+      }),
+    }))
+  }
+
   render() {
-    const {titleInput, dateInput} = this.state
+    const {titleInput, dateInput, isFilterActive} = this.state
     const filteredAppointmentList = this.getAppointmentsList()
+    const filteredClassName = isFilterActive ? 'filled-color' : null
     return (
       <div className="main-container">
         <div className="bg-container">
           <div className="container">
-            <div>
-              <h1 className="heading">Add Appointment</h1>
+            <div className="large-devices">
               <form className="form" onSubmit={this.getFormRequest}>
+                <h1 className="heading">Add Appointment</h1>
                 <label className="title-text" htmlFor="title">
                   TITLE
                 </label>
@@ -86,20 +102,30 @@ class Appointments extends Component {
                   Add
                 </button>
               </form>
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png"
+                alt="appointments"
+                className="appointments-image"
+              />
             </div>
             <hr className="horizontal-line" />
             <div className="appointments-container">
               <h1 className="heading">Appointments</h1>
-              <button type="button" className="button-starred">
+              <button
+                type="button"
+                className={`button-starred ${filteredClassName}`}
+                onClick={this.getFilteredList}
+              >
                 Starred
               </button>
             </div>
-            <div>
+            <div className="adding-appointment-container">
               <ul className="appointment-list-container">
                 {filteredAppointmentList.map(eachAppointment => (
                   <AppointmentItem
                     key={eachAppointment.id}
                     appointmentDetails={eachAppointment}
+                    toggleStarredButton={this.toggleStarredButton}
                   />
                 ))}
               </ul>
